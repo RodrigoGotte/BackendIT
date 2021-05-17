@@ -8,6 +8,7 @@ import com.backit.backit.modelos.Producto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 public class impproducto implements productoservice {
 
@@ -22,7 +23,7 @@ public class impproducto implements productoservice {
     @Override
     public Producto encontrarProducto(Producto producto) {
         
-        return dao.findById(producto.getidusuario()).orElse(null);
+        return dao.findById(producto.getIdproducto()).orElse(null);
     }
     
 }

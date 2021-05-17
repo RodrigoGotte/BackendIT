@@ -11,15 +11,16 @@ import lombok.Data;
 public class Producto implements Serializable{
     
     private static final long serialVersionUID = 1L;
+   
     
+  
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idproducto;
+    private Long idproducto;
     
     @NotEmpty
     private String nombre;
-    
-    
+        
     private String descripcion;
     
     @NotEmpty
