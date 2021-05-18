@@ -19,11 +19,10 @@ public class Usuario implements Serializable{
     
     private static final long serialVersionUID = 1L;
     
-    @Setter
-    @Getter
+  
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer idusuario;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long idusuario;
     
     @NotEmpty
     private String nombre;
@@ -31,7 +30,7 @@ public class Usuario implements Serializable{
     @NotEmpty
     private String contraseña;
     
-    @OneToOne
+    @OneToMany
     @JoinColumn(name="id")
     private List<carrito> tipoCarrito;
     
@@ -39,6 +38,6 @@ public class Usuario implements Serializable{
 
     private Double acuCompras;
 
+
     
 }
-

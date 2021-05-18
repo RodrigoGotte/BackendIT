@@ -3,7 +3,7 @@ import java.io.Serializable;
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import lombok.Data;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 
 @Entity
 @Data
@@ -18,9 +18,7 @@ public class carrito implements Serializable{
     @NotEmpty
     private String tipo;
 
-    public void add(SimpleGrantedAuthority simpleGrantedAuthority) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+       
 }
 
 

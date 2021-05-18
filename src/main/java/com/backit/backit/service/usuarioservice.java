@@ -19,30 +19,9 @@ import java.util.Collection;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 
-@Service("userDetailsService")
-@Slf4j
-public class usuarioservice implements UserDetailsService{
 
-    @Autowired
-    private usuariodao usuariodao;
+public interface usuarioservice /*implements UserDetailsService*/{
     
-    @Override    
-    public UserDetails loadUserByUsername(String nombre) throws UsernameNotFoundException {
-        Usuario usuario = usuariodao.findByUsername(nombre);
-
-        if(usuario == null){
-            throw new UsernameNotFoundException(nombre);
-        }
-        
-        var carrs = new ArrayList<GrantedAuthority>(); 
-        
-        for(carrito car: usuario.getTipoCarrito()){
-            carrs.add(new SimpleGrantedAuthority(car.getTipo()));
-        }
-           return new User(usuario.getNombre(), usuario.getContraseña(),carrs);
-
-     
-    }
-          
-        
+      
+    
 }
