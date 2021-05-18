@@ -30,13 +30,14 @@ public class Usuario implements Serializable{
     @NotEmpty
     private String contraseña;
     
-    @OneToMany
-    @JoinColumn(name="id")
-    private List<carrito> tipoCarrito;
+    @Column
+    private int tipocarrito;
     
-    private Date ultimaCompra;
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date ultimacompra;
 
-    private Double acuCompras;
+    @Column
+    private Double acucompras;
 
 
     

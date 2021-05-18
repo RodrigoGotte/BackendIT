@@ -16,12 +16,17 @@ import com.backit.backit.dao.usuariodao;
 import com.backit.backit.modelos.Usuario; 
 import com.backit.backit.modelos.carrito;
 import java.util.Collection;
+import java.util.Optional;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
 
 
 public interface usuarioservice /*implements UserDetailsService*/{
     
+    Usuario findBynombreAndContraseña(String nombre,String contraseña);
+    Usuario changeType(Usuario usuario);
+    Usuario findByidusuario(Long id);
+    Usuario compra(Usuario usuario);
       
     
 }
