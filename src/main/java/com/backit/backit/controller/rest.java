@@ -56,19 +56,19 @@ public class rest {
     @PutMapping("check")
     public void changeTipe(Usuario usuario)
     {
-        long timeNow = Calendar.getInstance().getTimeInMillis();
+      /*  long timeNow = Calendar.getInstance().getTimeInMillis();
         long timeProm =Calendar.getInstance().getTimeInMillis();
         
         java.sql.Timestamp tp = new java.sql.Timestamp(timeProm); 
         java.sql.Timestamp ts = new java.sql.Timestamp(timeNow);
-       
+       */
         if(usuario.getAcucompras() >= 10000)
         {
            usuario.setTipocarrito(1);
-        }if (ts == tp)
+       /* }if (ts == tp)
         {
              usuario.setTipocarrito(3);
-        }        
+        */}        
         else
         {
             usuario.setTipocarrito(2);
@@ -86,6 +86,7 @@ public class rest {
        Usuario usuario = usuS.findByidusuario(id);
         usuario.setAcucompras(venta + usuario.getAcucompras());
         usuario.setUltimacompra(ts);
+         changeTipe(usuario);
        
         usuS.compra(usuario);
        
