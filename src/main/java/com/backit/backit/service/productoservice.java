@@ -7,7 +7,7 @@ import com.backit.backit.modelos.Producto;
 public interface productoservice  {
 
     public List<Producto> listarProductos();
-    public Producto encontrarProducto(Producto producto);
+    public Producto encontrarProducto(Long id);
 }
     
 

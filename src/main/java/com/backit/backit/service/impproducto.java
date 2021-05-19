@@ -21,9 +21,9 @@ public class impproducto implements productoservice {
     }
 
     @Override
-    public Producto encontrarProducto(Producto producto) {
+    public Producto encontrarProducto(Long id) {
         
-        return dao.findById(producto.getIdproducto()).orElse(null);
+        return dao.findByidproducto(id);
     }
     
 }

@@ -42,15 +42,7 @@ public class rest {
     {
         return prodS.listarProductos();
     }
-    
-/*    @PostMapping("sold/{idusuario}/{precio}") 
-    public void Comprar(@PathParam("idusuario") Long idusuario, @PathParam("precio") double precio )
-    {
-        se trabaja con usuarioservice
         
-    }
-*/
-    
     @GetMapping("/usu/{nombre}/{contraseña}")
     public Usuario login(@PathVariable("nombre")String nombre, @PathVariable("contraseña")String contraseña )            
     {
@@ -64,10 +56,20 @@ public class rest {
     @PutMapping("check")
     public void changeTipe(Usuario usuario)
     {
+        long timeNow = Calendar.getInstance().getTimeInMillis();
+        long timeProm =Calendar.getInstance().getTimeInMillis();
+        
+        java.sql.Timestamp tp = new java.sql.Timestamp(timeProm); 
+        java.sql.Timestamp ts = new java.sql.Timestamp(timeNow);
+       
         if(usuario.getAcucompras() >= 10000)
         {
            usuario.setTipocarrito(1);
-        }else
+        }if (ts == tp)
+        {
+             usuario.setTipocarrito(3);
+        }        
+        else
         {
             usuario.setTipocarrito(2);
 
@@ -96,6 +98,16 @@ public class rest {
                 
         return usuario;
     }
+
+
+ @GetMapping("/prod/{nombre}")
+    public Producto encontrarProd(@PathVariable("nombre")Long nombre)            
+    {
+        Producto producto = prodS.encontrarProducto(nombre);
+                
+        return producto;
+    }
+    
 
 }
 
